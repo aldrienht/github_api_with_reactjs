@@ -1,0 +1,13 @@
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+.error-template {padding: 100px 15px; text-align: center;}
+.error-template>h1,h2{font-size: 5em;}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+.error-actions .btn { margin-right:10px; }

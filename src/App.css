@@ -1,0 +1,44 @@
+li{list-style-type: none}
+.languages{display: flex; justify-content: center;}
+.languages li{
+  margin: 10px 0;
+  cursor: pointer;
+  color: #fff;
+  background-color: #337ab7;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+ul.popular-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.popular-item{margin: 20px;text-align: center;}
+.popular-rank{font-size: 13px; margin: 5px;}
+.space-list-items{
+  margin-bottom: 7px;
+}
+.avatar{width: 100px; border-radius: 50%;}
+.spinner-holder{position:fixed;top:50%;left:50%;}
+.spinner{
+  float: right;
+  position: relative;
+  left: -50%; /* or right 50% */
+  text-align: center;
+}
+.active_lang{
+  background-color: #dadada !important;
+  color: #4e4e4e !important;
+  font-weight: bold !important;
+}
+.battle-holder{
+  display: flex;
+  justify-content: space-around;
+}
+.row{min-width: 60%; margin: 0px;}
+.vs{
+  margin-top: 100px;
+  color: #dd3545;
+  font-weight: bold;
+}
