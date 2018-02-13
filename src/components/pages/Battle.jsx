@@ -15,6 +15,7 @@ class Battle extends React.Component{
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleSubmit(id, username){
@@ -27,11 +28,21 @@ class Battle extends React.Component{
     });
   }
 
+  handleReset(id) {
+    // id is equal to playerOne or playerTwo
+    const newState = {};
+    this.setState(function(){
+      newState[id + 'Name'] = '';
+      newState[id + 'Image'] = '';
+      return newState
+    });
+  }
+
   render(){
-    const playerOneName = this.state.playerOneName;
-    const playerTwoName = this.state.playerTwoName;
-    const playerOneImage = this.state.playerOneImage;
-    const playerTwoImage = this.state.playerTwoImage;
+    const {playerOneName} = this.state;
+    const {playerTwoName} = this.state;
+    const {playerOneImage} = this.state;
+    const {playerTwoImage} = this.state;
 
     return(
       <React.Fragment>
@@ -51,7 +62,7 @@ class Battle extends React.Component{
         </div>
 
         <div className='row text-center'>
-          {playerOneName && <PlayerImage id='playerOne' username={playerOneName} url={playerOneImage} />}
+          {playerOneName && <PlayerImage id='playerOne' username={playerOneName} url={playerOneImage} onReset={this.handleReset} />}
           {(playerOneName && playerTwoName) &&
             <div className='col-md-4'>
               <h1 className='vs'>VS</h1>
@@ -59,7 +70,7 @@ class Battle extends React.Component{
               <button className='btn btn-lg btn-primary'>Fight Now</button>
             </div>
           }
-          {playerTwoName && <PlayerImage id='playerTwo' username={playerTwoName} url={playerTwoImage} />}
+          {playerTwoName && <PlayerImage id='playerTwo' username={playerTwoName} url={playerTwoImage} onReset={this.handleReset} />}
         </div>
       </React.Fragment>
     )

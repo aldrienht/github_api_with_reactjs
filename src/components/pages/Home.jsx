@@ -18,7 +18,7 @@ class ErrorBoundary extends React.Component{
 }
 
 export default class Home extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       selectedLanguage: 'All',
@@ -28,23 +28,24 @@ export default class Home extends React.Component {
     this.updateLanguage = this.updateLanguage.bind(this);
   }
 
-  componentWillMount(){
+  componentWillMount() {
     console.log('Component Will Mount ...');
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getPopularRepos(this.state.selectedLanguage);
   }
 
-  getPopularRepos(language){
+  getPopularRepos(language) {
     services.getPopularRepos({language}, (response) => {
+      console.log(response);
       this.setState({
         repos: response
       });
     });
   }
 
-  updateLanguage(language){
+  updateLanguage(language) {
     this.setState({
       selectedLanguage: language,
       repos: null
@@ -64,7 +65,7 @@ export default class Home extends React.Component {
   //   document.getElementById(language).classList.add('active_lang');
   // }
 
-  renderLanguageSelection(){
+  renderLanguageSelection() {
     var all_languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
 
     const language_list = all_languages.map((item, id) => {
