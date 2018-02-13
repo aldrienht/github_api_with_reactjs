@@ -39,7 +39,7 @@ class PlayerInput extends React.Component{
               <span className="input-group-text" id="inputGroup-sizing-sm">{this.props.label}</span>
             </div>
             <input
-              id='username'
+              id={this.props.id}
               className='form-control'
               placeholder='github username'
               type='text'

@@ -2,8 +2,8 @@ import React from "react";
 import MDSpinner from "react-md-spinner";
 import NavigationLinks from "../navigation_links";
 import * as services from '../../services/Api';
-// import PropTypes from 'prop-types';
 
+/* ErrorBoundary return null (or can be element<h1>...) if something error happens with the record */
 class ErrorBoundary extends React.Component{
   state = {
     hasError: false
@@ -38,7 +38,6 @@ export default class Home extends React.Component {
 
   getPopularRepos(language) {
     services.getPopularRepos({language}, (response) => {
-      console.log(response);
       this.setState({
         repos: response
       });
@@ -92,7 +91,6 @@ export default class Home extends React.Component {
       )
     }
 
-    /* ErrorBoundary return null (or can be element<h1>...) if something error happens with the record */
     const list = this.state.repos.map((data, index) => {
       return(
         <ErrorBoundary key={index}>

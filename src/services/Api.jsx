@@ -8,11 +8,25 @@ export const getPopularRepos = (params, callback = nullFunc) => {
   params.language + '&sort=start&order=desc&type=Repositories');
   axios.get(encodeURI)
   .then(function(response){
-    if(response){
+    if(response) {
       callback(response.data.items)
     }
   })
   .catch(function(error){
     console.log(error.message)
+  });
+}
+
+
+export const getUserInfo = (params, callback = nullFunc) => {
+  var encodeURI = window.encodeURI('https://api.github.com/users/' + params.username);
+  axios.get(encodeURI)
+  .then(function(response) {
+    if(response) {
+      callback(response.data);
+    }
+  })
+  .catch(function(error) {
+    console.log(error.message);
   });
 }

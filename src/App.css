@@ -42,3 +42,4 @@ ul.popular-list{
   color: #dd3545;
   font-weight: bold;
 }
+.PlayerInputHolder > div, .PlayerImageHolder > div{min-width: 300px;}
