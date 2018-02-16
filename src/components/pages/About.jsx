@@ -28,7 +28,7 @@ class About extends Component {
         </h6>
 
         <br/>
-        <p>Developed at: February 9, 2018</p>
+        <p>Developed: February 9, 2018</p>
       </div>
     );
   }
