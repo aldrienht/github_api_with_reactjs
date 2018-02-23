@@ -43,3 +43,4 @@ ul.popular-list{
   font-weight: bold;
 }
 .PlayerInputHolder > div, .PlayerImageHolder > div{min-width: 300px;}
+.signout{cursor: pointer; color: #03b2e6 !important;}

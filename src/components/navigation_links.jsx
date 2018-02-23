@@ -1,8 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../logo.svg';
+import { firebaseApp } from '../firebase';
 
 export default class NavigationLinks extends React.Component{
+  signOut() {
+    firebaseApp.auth().signOut();
+  }
+
   render(){
     return(
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -25,6 +30,9 @@ export default class NavigationLinks extends React.Component{
               </li>
               <li className="nav-item">
                 <NavLink exact to="/battle" activeClassName="active" className="nav-link">Battle</NavLink>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link signout" onClick={ this.signOut }>Logout</a>
               </li>
             </ul>
           </div>
