@@ -17,7 +17,6 @@ export default class SignIn extends React.Component {
   }
 
   signIn() {
-    console.log('this state: ', this.state);
     const { email, password } = this.state;
     firebaseApp.auth().signInWithEmailAndPassword(email, password)
     .catch(error => {
@@ -38,27 +37,31 @@ export default class SignIn extends React.Component {
             <strong>Oh snap!</strong> {this.state.error.message}
           </div>
         }
+
         <div className="form-group">
-          <input
-            className="form-control pad10"
-            type="text"
-            placeholder="Email Address:"
-            autoFocus="true"
-            onChange={(event) => this.setState({email: event.target.value})}
-          />
-          <input
-            className="form-control pad10"
-            type="password"
-            placeholder="Password:"
-            onChange={(event) => this.setState({password: event.target.value})}
-          />
-          <br/>
-          <button
-            className="btn btn-md btn-primary pad10 btn-block"
-            type="button"
-            onClick={() => this.signIn()}
-            >Sign In
-          </button>
+          <form onSubmit={(event) => event.preventDefault()}>
+            <input
+              className="form-control pad10"
+              type="text"
+              placeholder="Email Address:"
+              autoFocus="true"
+              onChange={(event) => this.setState({email: event.target.value})}
+            />
+            <input
+              className="form-control pad10"
+              type="password"
+              placeholder="Password:"
+              onChange={(event) => this.setState({password: event.target.value})}
+            />
+            <br/>
+            <button
+              className="btn btn-md btn-primary pad10 btn-block"
+              type="button"
+              onClick={() => this.signIn()}
+              >Sign In
+            </button>
+          </form>
+          
           <Link to="/signup">Not yet registered?</Link>
         </div>
       </div>

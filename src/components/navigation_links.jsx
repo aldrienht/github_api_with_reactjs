@@ -2,8 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../logo.svg';
 import { firebaseApp } from '../firebase';
+import { connect } from 'react-redux';
 
-export default class NavigationLinks extends React.Component{
+class NavigationLinks extends React.Component{
   signOut() {
     firebaseApp.auth().signOut();
   }
@@ -13,7 +14,7 @@ export default class NavigationLinks extends React.Component{
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container">
           <NavLink className="navbar-brand" to="/">
-            Aldrien Studying<img src={logo} width="150" height="30" alt="" />
+            Learning ReactJs<img src={logo} width="150" height="30" alt="" />
           </NavLink>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -32,7 +33,10 @@ export default class NavigationLinks extends React.Component{
                 <NavLink exact to="/battle" activeClassName="active" className="nav-link">Battle</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link signout" onClick={ this.signOut }>Logout</a>
+                <a className="nav-link signout">Hi, {this.props.email}</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link signout" onClick={ this.signOut }>| Logout</a>
               </li>
             </ul>
           </div>
@@ -41,3 +45,11 @@ export default class NavigationLinks extends React.Component{
     );
   }
 }
+
+
+const mapStateToProps = state => {
+  const { email } = state;
+  return {email}
+}
+
+export default connect(mapStateToProps, null)(NavigationLinks);
